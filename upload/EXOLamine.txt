@@ -1,0 +1,11 @@
+MR LAMINE
+
+Exercice:
+L'utilisateur donne un entier supérieur à 1 et le programme affiche, s'il y en a, tous ses diviseurs propres sans répétition ainsi que leur nombre. S'il n'y en a pas, il indique qu'il est premier. Par exemple :
+
+
+
+Entrez un entier strictement positif : 12
+Diviseurs propres sans répétition de 12 : 2 3 4 6 (soit 4 diviseurs propres)
+Entrez un entier strictement positif : 13
+Diviseurs propres sans répétition de 13 : aucun ! Il est premier

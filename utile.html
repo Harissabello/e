@@ -1,0 +1,103 @@
+<div class="wrapper">
+    <?php include('menu-page-index.php') ?>
+    <div class="container-fluid m-0">
+        <h4 class="text-dark">Les formations disponibles</h4>
+
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <div class="col-md-12">
+                <!-- d-flex flex-column -->
+                <div class="d-flex flex-column p-3 h-100">
+                    <!-- <h1>Mon Contenu</h1> -->
+
+                    <div class="row flex-row">
+                        <?php if(mysqli_num_rows($resultClasse) > 0) {
+                                        // output data of each row
+             while($rowClasse = mysqli_fetch_assoc($resultClasse)) { 
+    ?>
+
+                        <div class="card col-md-4 mr-4 mb-2">
+                            <div class="circle">
+                                <img src="./fichier/<?php echo $rowClasse['img'];?>" alt="Image" class="image">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title text-success text-uppercase"><b>
+                                        <?php   
+                          $titre =  $rowClasse["titre"];
+                          $titre = substr($titre, 0, 50);
+                          $length = strlen($titre);
+                            if($length > 50){
+                                echo $titre."...";
+                            }else{
+                                echo $titre."...";
+                            }
+                          ?><br>
+
+                                    </b></h5>
+                                <p class="text-primary">
+                                    <?php echo  $rowClasse["montant"]?> F.CFA
+                                </p>
+                                <h6 class="text-dark">
+                                    <?php   
+                          $contenue =  $rowClasse["des_formation"];
+                          $contenue = substr($titre, 0, 20);
+                          $length = strlen($contenue);
+                            if($length >=50){
+                                echo $contenue."...";
+                            }else{
+                                echo $contenue."...<br>";
+                            }
+                         
+                          ?>
+                                </h6>
+                                <div class="row">
+                                    <div class="col-auto">
+                                        <a href="info-cours.php?id=<?php echo $rowClasse['id_formation']?>"
+                                            class="btn btn-primary">Voir plus</a>
+                                    </div>
+                                    <div class="col-auto">
+                                        <p>
+                                            <?php if ($rowClasse['debut'] <= date('Y-m-d')) { ?>
+                                            <?php 
+                                    ?>
+                                        <div class='ml-4 text-success'>Commencé</div>
+                                        <?php
+
+                                    }else{ ?>
+                                        <?php
+                                    ?>
+                                        <div class='ml-4 text-success'>En cours</div>
+                                        <?php
+                                    }?>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- </div> -->
+                        <!--Fin Content Row -->
+
+                        <?php   
+                                    }
+                                            } else {
+                                           echo " <div style='margin-top: 25px;'>
+                                                    <h2> Vous n'avez pas encore créé de classe !</h2>
+                                           </div>";
+                                            }
+                                           ?>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+
+
+        <button class="btn btn-success btn-block" type="button">Plus de cours</button>
+        <br>
+
+    </div>
+
+</div>

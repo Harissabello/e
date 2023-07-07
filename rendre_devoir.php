@@ -66,8 +66,8 @@ th {
     <p class="card-text">
       <?php echo $rowDevoir['description']?>
         <br>
-        <li><a href="">Lien enligne du document</a>
-            <li><a href="">Téléchargé le document</a>
+        <li><a href="<?php echo $rowDevoir['lien']?>">Lien enligne du document</a>
+            <li><a href="<?php echo $rowDevoir['doc']?>">Téléchargé le document</a>
     </p>
   </div>
  
